@@ -476,7 +476,7 @@ function popAllBombs(r,c) {
 // 타일 주변의 플래그들의 무결성을 검사한다.
 function flagTest(r,c) {
   const result = {nFlags:0, isCorrect:true,
-                  empty:[], alreadyOpend:false }
+                  empty:[] }
   const surround = [
     {y:r-1,x:c},{y:r,x:c+1},{y:r+1,x:c},{y:r,x:c-1},
     {y:r-1,x:c-1},{y:r-1,x:c+1},{y:r+1,x:c+1},{y:r+1,x:c-1}
