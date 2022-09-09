@@ -17,10 +17,10 @@ google minesweeper replica with js canvas 2d api
 - [ ] 소리 기능 추가.
 - [ ] 더 선명한 랜더링. (게임의 top 부분은 선명하나, 타일들이 흐리게 랜더링됨).
 
-## Description
+## previous features
 
 <img src='https://github.com/teumal/google-minesweeper-replica/blob/2022-09-09/case1.PNG?raw=true'>
-원본 google minesweeper 와는 달리, 숫자가 적힌 타일을 눌렀을 때  
+원본 google minesweeper 와는 달리, 숫자가 적힌 타일을 눌렀을 때  설치한 플래그의 갯수와 누른 타일 주변에 실제로 존재하는 지뢰의 수가 동일하다면, 타일을 열 수 있습니다. 하지만, 잘못됬다면 게임오버로 간주됩니다.
 
 ## In mobile devices
 <div>
