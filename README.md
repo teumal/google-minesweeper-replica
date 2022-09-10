@@ -24,7 +24,7 @@ google minesweeper replica with js canvas 2d api
 
 ## Descriptions
 여기서는 원본과 달라진 점과, 새로 추가된 기능들을 기술합니다:<br>
-<img src='https://github.com/teumal/google-minesweeper-replica/blob/2022-09-09/case1.PNG?raw=true'><br>
+<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-202650_QuickEdit.jpg?raw=true'><br>
 1. 원본 google minesweeper 와는 달리, 숫자가 적힌 타일을 눌렀을 때  설치한 플래그의 갯수와 누른 타일 주변에 실제로 존재하는 지뢰의 수가 동일하다면, 타일을 열 수 있습니다. 하지만, 잘못됬다면 게임오버로 간주됩니다. 게임을 스피디하게 진행할 수 있도록 도와줍니다.
 
 <div>
