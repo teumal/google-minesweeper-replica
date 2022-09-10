@@ -35,21 +35,21 @@ google minesweeper replica with js canvas 2d api
  layer0 (opened tiles)
    ↓
  layer1 (wave animation)         const cvs = document.querySelectorAll("canvas")     
-   ↓                             const layerCont = []
+   ↓                             const layer = []
  layer2 (tile covers)            for(let i=0; i<cvs.length; ++i) {                         
-   ↓                               layerCont.push(cvs[i].getContext('2d') )       
+   ↓                               layer.push(cvs[i].getContext('2d') )       
  layer3 (tile select animation)  }
    ↓
- layer4 (tile borders, flower)   layerCont[0]; // layer0.
-   ↓                             layerCont[1]; // layer1.
- layer5 (flags, numbers)         layerCont[2]; // layer2.
-   ↓                             layerCont[3]; // layer3.
- layer6 (render animation)         .......     // etc..
+ layer4 (tile borders, flower)   layer[0]; // layer0.
+   ↓                             layer[1]; // layer1.
+ layer5 (flags, numbers)         layer[2]; // layer2.
+   ↓                             layer[3]; // layer3.
+ layer6 (render animation)         ....... // etc..
 ```
-애니메이션은 총 7개의 캔버스로 이루어져 있으며, 모든 레이어들은 cvs.getContext('2d') 의 별칭입니다. 모든 레이어들은 layerCont 를 indexing 하는 것으로 접근할 수 있으며 크기는 game 의 크기에 100% 비율을 따릅니다. 기본적으로 모든 애니메이션들을 그리기 위해서는 animationTasks 에다가 그릴 애니메이션을 등록해야 합니다. 
+애니메이션은 총 7개의 캔버스로 이루어져 있으며, 모든 레이어들은 cvs[i].getContext('2d') 의 별칭입니다. 모든 레이어들은 layer 를 indexing 하는 것으로 접근할 수 있으며 크기는 game 의 크기에 100% 비율을 따릅니다. 기본적으로 모든 애니메이션들을 그리기 위해서는 animationTasks 에다가 그릴 애니메이션을 등록해야 합니다. 
 ``` javascript
  window.requestAnimationFrame(paintAnimation)  // 0. 최초에 paintAnimation 함수를 콜백으로 등록하고
- const animationTasks = []                           처리할 애니메이션을 담을 배열을 선언.
+ const animationTasks = []                     //    처리할 애니메이션을 담을 배열을 선언.
  
  animationTasks.push({   // 1. 어떤 함수가 animation task 를 등록함.
   x       : xpos, 
