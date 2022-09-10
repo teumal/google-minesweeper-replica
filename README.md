@@ -1,35 +1,41 @@
-# google-minesweeper-replica (2nd edition)
+# google-minesweeper-replica
 google minesweeper replica with js canvas 2d api
 
-이전에 문제가 많았던 초기 버전을 처음부터 뜯어 고쳐서, 소리기능을 제외한 나머지 기능들을 모두 추가한 버전입니다. 일부 부분은 코드 리팩토링을 통해, 알고리즘은 기존과 비슷하게 유지하되 더 간결하고 단순하게 바꾸었습니다. 추가된 기능을 정리하면 다음과 같습니다:
+## overview
+구글에 "지뢰찾기"를 검색하면 나오는 웹게임의 레플리카입니다. 게임의 디자인과 이미지의 출처는 [Google Minesweeper](https://g.co/kgs/vHWCDL) 입니다. 만들게 된 계기는 3가지가 있습니다:
 
-#### Updated features:
-- [x] 모바일 환경에서 플레이 가능 (자세한 것은 후술)
-- [x] bomb generator 개선 (가장 심각했던 오류로, bomb generator 가 아닌 핵심 알고리즘에 치명적인 문제가 있음을 발견 후 해결)
-- [x] putWave 함수 개선. 전보다 자연스럽게 느껴짐
+1. **원본 게임의 아트 스타일을 한번 구현해보고 싶었습니다**. 단순한 지뢰찾기임에도 불구하고, 화려한 연출을 보여주죠. 
+
+2. **게임 플레이가 불편하다는 점입니다**. 다른 지뢰찾기 구현에서는 숫자 타일을 눌러서 한번에 여러개의 타일을 열 수 있기 해놓아서 아주 스피디하게 게임을 진행할 수 있었지만, 여기는 하나하나 직접 열어줘야 되기에 플레이가 아주 지루해진다는 단점이 있었습니다. 
+
+3. **모바일 환경에서 조작감이 번거롭고 불편합니다**. 모바일 환경에서 플레이 가능한 것은 좋았습니다. 다만, 타일을 누를 때마다 "플래그", "타일 열기" 중 하나를 선택하라고 나오는 것이 몰입을 방해했습니다. 대신 터치를 짧게하거나 길게 하는 것으로 이를 구분하였으면 더 좋았을 것이라는 생각이 들었습니다.
+
+#### New features:
+- [x] 모바일 환경에서의 조작감 향상(아래에 후술).
+- [x] 숫자 타일을 클릭해 타일을 여는 기능을 추가.
 - [x] flag mode 추가. 모바일 환경에서는 이 기능을 통해 더 빠르고 쾌적하게 게임을 즐길 수 있음.
-- [x] level select 개선. 모바일 환경에서 더 이상 형태가 망가지지 않음.
 - [x] resize window. 창의 크기가 변해도 너무 작지 않는 한, 게임은 현재 창에 맞춰서 크기를 재조정하도록 변경.
-- [x] 새로운 레이어를 추가하여, layer 들의 z-index 속성 변경을 막음.
 
 #### Todo lists:
 - [ ] 커스텀 모드 추가. (지금은 level 선택만 가능).
 - [ ] 소리 기능 추가.
 - [ ] 더 선명한 랜더링. (게임의 top 부분은 선명하나, 타일들이 흐리게 랜더링됨).
+- [ ] 더 자연스러운 애니메이션.
 
-## previous features
+## Descriptions
+여기서는 원본과 달라진 점과, 새로 추가된 기능들을 기술합니다:<br>
+<img src='https://github.com/teumal/google-minesweeper-replica/blob/2022-09-09/case1.PNG?raw=true'><br>
+1. 원본 google minesweeper 와는 달리, 숫자가 적힌 타일을 눌렀을 때  설치한 플래그의 갯수와 누른 타일 주변에 실제로 존재하는 지뢰의 수가 동일하다면, 타일을 열 수 있습니다. 하지만, 잘못됬다면 게임오버로 간주됩니다. 게임을 스피디하게 진행할 수 있도록 도와줍니다.
 
-<img src='https://github.com/teumal/google-minesweeper-replica/blob/2022-09-09/case1.PNG?raw=true'>
-원본 google minesweeper 와는 달리, 숫자가 적힌 타일을 눌렀을 때  설치한 플래그의 갯수와 누른 타일 주변에 실제로 존재하는 지뢰의 수가 동일하다면, 타일을 열 수 있습니다. 하지만, 잘못됬다면 게임오버로 간주됩니다.
-
-## In mobile devices
 <div>
   <img src='https://github.com/teumal/google-minesweeper-replica/blob/2022-09-09/Screenshot_20220909-202650_QuickEdit.jpg?raw=true' width=400 height=600>
   <img src='https://github.com/teumal/google-minesweeper-replica/blob/2022-09-09/Screenshot_20220909-210705_QuickEdit.jpg?raw=true' width=400 height=600>
 </div>
-모바일 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. 모바일 환경에서는 이 과정에 매우 번거로울 수 있기에, 우측 상단에 있는 플래그 모드를 키면  플래그설치와 타일 열기의 조작키를 반대로 할 수 있습니다. 기본적으로는 mine mode 입니다. 
 
-## Implementation
+2. 모바일 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. 모바일 환경에서는 이 과정조차도 매우 번거로울 수 있기에, flag mode 기능을 새로 도입하였습니다. 
+
+
+## Implementation.
 ### animations
 ```javascirpt
  layer0 (opened tiles)
@@ -52,7 +58,7 @@ google minesweeper replica with js canvas 2d api
  const animationTasks = []                     //    처리할 애니메이션을 담을 배열을 선언.
  
  animationTasks.push({   // 1. 어떤 함수가 animation task 를 등록함.
-  x       : xpos, 
+  x       : xpos,        //    task 에는 type 과, 애니메이션에 필요한 property 들이 있어야함.
   y       : ypos,
   curFrame: 0, 
   type    :'plant'
