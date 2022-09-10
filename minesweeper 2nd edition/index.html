@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title> Minesweeper </title>
+</head>
+<body>
+    <div class="game">
+        <div class="top">
+          <div class="topCont">
+            <div class="left">
+              <div class="levelSelect">
+                <span>초급</span>
+                <img src="./image/arrow-point-to-down.png" width="8" height="8">
+              </div>
+            </div>
+    
+            <div class="center">
+              <div class="flag">
+                <img src="./image/flag_icon.png" width="40" height="40">
+                <span>10</span>
+              </div>
+
+              <div class="timer">
+                <img src="./image/clock_icon.png" width="40" height="40">
+                <span>000</span>
+              </div>
+            </div>
+    
+            <div class="right">
+              <div class="modeSelect">
+                <img src="./image/mine.png" width="30" height="30">
+              </div>
+              <img src="./image/volume.png" width="40" height="40">
+            </div>
+          </div>
+        </div>
+
+       <div class="layerCont">
+         <canvas class="layer0"></canvas> <!-- layer0: opened tiles -->
+         <canvas class="layer1"></canvas> <!-- layer1: wave -->
+         <canvas class="layer2"></canvas> <!-- layer2: tiles -->
+         <canvas class="layer3"></canvas> <!-- layer3: selected tile -->
+         <canvas class="layer4"></canvas> <!-- layer4: tile border, flower -->
+         <canvas class="layer5"></canvas> <!-- layer5: flag, number -->
+         <canvas class="layer6"></canvas> <!-- layer6: animation-->
+       </div>
+
+
+       <div class="levelCont">
+         <div onmouseup="init(8,10,10,'초급')">
+           <span>초급</span>
+           <img src="./image/check-mark.png" width="10" height="10">
+         </div>
+
+         <div onmouseup="init(14,18,40,'중급')">
+            <span>중급</span>
+            <img src="./image/check-mark.png" width="10" height="10">
+         </div>
+
+         <div onmouseup="init(20,24,99,'고급')">
+            <span>고급</span>
+            <img src="./image/check-mark.png" width="10" height="10">
+         </div>
+
+         <div onmouseup="init(0,0,0,'커스텀')">
+            <span>커스텀</span>
+            <img src="./image/check-mark.png" width="10" height="10">
+         </div>
+       </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>

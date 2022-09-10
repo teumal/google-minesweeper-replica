@@ -1,0 +1,155 @@
+body, html {
+    padding:0;
+    margin:0;
+    height:100%;
+    width:100%;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(#000227, #313131);
+}
+
+
+.game {
+    transition:1s;
+    width:350px;
+    height:350px;
+    overflow:hidden;
+}
+
+
+.top {
+   background:rgb(70, 129, 26);
+   width:100%;
+   height:60px;
+
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   user-select: none;
+}
+
+
+.topCont {
+    height:80%;
+    width:90%;
+
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.topCont .left {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self:center;
+
+    padding-left:5px;
+    padding-right:5px;
+    background:white;
+    border-radius: 8%;
+    height:80%;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+
+.topCont .center {
+    display:flex;
+    flex-direction: row;
+    align-self:center;
+}
+
+.topCont .center .flag {
+    padding-right:20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size:20px;
+}
+
+.topCont .center .timer {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size:20px;
+}
+
+
+.topCont .right {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+
+.topCont .right img {
+    cursor:pointer;
+}
+
+.topCont .right .modeSelect {
+   cursor:pointer;
+   background:white;
+   border-radius: 8%;
+   margin-right:5px;
+
+   display:flex;
+   align-items:center;
+   justify-content: center;
+}
+
+
+
+.layerCont {
+    width:100%;
+    height:calc(100% - 60px);
+    position:relative;
+    background:rgb(70, 129, 26);
+}
+
+.layerCont canvas {
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+
+
+.levelCont {
+  position:absolute;
+  background:white;
+  box-shadow: -1px -2px 5px grey;
+  border-radius: 8%;
+  font-weight:bold;
+  width:100px;
+  height:100px;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+}
+
+.levelCont div {
+   border-radius: 8%;
+   width:70%;
+   display:flex;
+   flex-direction:row;
+   justify-content:space-between;
+
+   cursor:pointer;
+   user-select:none;
+}
+
+.levelCont img {
+    opacity:0;
+}
+
+
+
+
+
