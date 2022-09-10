@@ -1,6 +1,6 @@
 # google-minesweeper-replica
-google minesweeper replica with js canvas 2d api
-
+google minesweeper replica with js canvas 2d api <br> <br>
+<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/gameover1.PNG?raw=true' width=500 height=500>
 ## overview
 구글에 "지뢰찾기"를 검색하면 나오는 웹게임의 레플리카입니다. 게임의 디자인과 이미지의 출처는 [Google Minesweeper](https://g.co/kgs/vHWCDL) 입니다. 만들게 된 계기는 3가지가 있습니다:
 
@@ -20,7 +20,7 @@ google minesweeper replica with js canvas 2d api
 - [ ] 커스텀 모드 추가. (지금은 level 선택만 가능).
 - [ ] 소리 기능 추가.
 - [ ] 더 선명한 랜더링. (게임의 top 부분은 선명하나, 타일들이 흐리게 랜더링됨).
-- [ ] 더 자연스러운 애니메이션.
+- [ ] 더 자연스러운 애니메이션 (일단은 구현하기는 했지만, 어색한 부분이 있습니다).
 
 ## Descriptions
 여기서는 원본과 달라진 점과, 새로 추가된 기능들을 기술합니다:<br>
@@ -32,26 +32,12 @@ google minesweeper replica with js canvas 2d api
   <img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-210705_QuickEdit.jpg?raw=true' width=400 height=600>
 </div>
 
-2. 모바일 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. 모바일 환경에서는 이 과정조차도 매우 번거로울 수 있기에, flag mode 기능을 새로 도입하였습니다. 
-
+2. 모바일 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. 모바일 환경에서는 이 과정조차도 매우 번거로울 수 있기에, flag mode 기능을 새로 도입하였습니다. <br> <img src='https://github.com/teumal/google-minesweeper-replica/blob/main/flagmode.PNG?raw=true'> <br> 우측 상단에는 이와 같은 버튼이 하나 있으며, flag mode 와 mine mode 를 번갈아가면서 사용하는게 가능합니다. 
 
 ## Implementation.
+게임에서 중요한 기능들을 어떻게 구현했는지에 대해서 기술합니다:
 ### animations
-```javascirpt
- layer0 (opened tiles)
-   ↓
- layer1 (wave animation)         const cvs = document.querySelectorAll("canvas")     
-   ↓                             const layer = []
- layer2 (tile covers)            for(let i=0; i<cvs.length; ++i) {                         
-   ↓                               layer.push(cvs[i].getContext('2d') )       
- layer3 (tile select animation)  }
-   ↓
- layer4 (tile borders, flower)   layer[0]; // layer0.
-   ↓                             layer[1]; // layer1.
- layer5 (flags, numbers)         layer[2]; // layer2.
-   ↓                             layer[3]; // layer3.
- layer6 (render animation)         ....... // etc..
-```
+
 애니메이션은 총 7개의 캔버스로 이루어져 있으며, 모든 레이어들은 cvs[i].getContext('2d') 의 별칭입니다. 모든 레이어들은 layer 를 indexing 하는 것으로 접근할 수 있으며 크기는 game 의 크기에 100% 비율을 따릅니다. 기본적으로 모든 애니메이션들을 그리기 위해서는 animationTasks 에다가 그릴 애니메이션을 등록해야 합니다. 
 ``` javascript
  window.requestAnimationFrame(paintAnimation)  // 0. 최초에 paintAnimation 함수를 콜백으로 등록하고
