@@ -37,28 +37,9 @@ google minesweeper replica with js canvas 2d api <br> <br>
 ## Implementation.
 게임에서 중요한 기능들을 어떻게 구현했는지에 대해서 기술합니다:
 ### animations
-
+<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/paintAnimation%20process.PNG?raw=true' width=1200 height=800><br>
 애니메이션은 총 7개의 캔버스로 이루어져 있으며, 모든 레이어들은 cvs[i].getContext('2d') 의 별칭입니다. 모든 레이어들은 layer 를 indexing 하는 것으로 접근할 수 있으며 크기는 game 의 크기에 100% 비율을 따릅니다. 기본적으로 모든 애니메이션들을 그리기 위해서는 animationTasks 에다가 그릴 애니메이션을 등록해야 합니다. 
-``` javascript
- window.requestAnimationFrame(paintAnimation)  // 0. 최초에 paintAnimation 함수를 콜백으로 등록하고
- const animationTasks = []                     //    처리할 애니메이션을 담을 배열을 선언.
- 
- animationTasks.push({   // 1. 어떤 함수가 animation task 를 등록함.
-  x       : xpos,        //    task 에는 type 과, 애니메이션에 필요한 property 들이 있어야함.
-  y       : ypos,
-  curFrame: 0, 
-  type    :'plant'
-})
 
-function paintAnimaion(t) {    // 2. 콜백 호출된 paintAnimation 함수가 태스크에 명시된 type 의 애니메이션을 그림.
-     switch(animationTasks[i].type) {
-      case'plant': /* do something */
-           ...
-}
-
-animationTasks.splice(taskId,1)  // 3. 애니메이션이 끝났다면, 목록에서 삭제함. 다시 1 로 돌아감.
-
-```
 paintAnimation 함수는 repaint 할 타이밍이 되면, layer6 의 내용을 모두 지우고  animationTasks 에 등록된 태스크부터 layer6 에다가 차례대로 그려 나갑니다. 물론, animation 의 type 에 따라, 그릴 레이어가 다를 수 있습니다. 애니메이션이 종료되면, animationTasks 에서 해당 taskId를 가진 태스크를 삭제합니다. 이 과정이 callback 을 통해 비동기로 사용하기 때문에, animationTasks 가 thread-safe 하지 않을 것 같은게 문제지만, javascript 는 태생적으로 싱글 스레드이고  비동기라는 것이, 호출 타이밍만 비동기라는 의미이고  모든 호출된 함수들은 atomic 하게 실행된다고 생각하였습니다. 즉, animationTasks에서 태스크를 추가하는 과정은 항상 atomic 하다고 작성한 코드입니다.
 
 ### detect a long press
