@@ -34,7 +34,7 @@ google minesweeper replica with js canvas 2d api <br> <br>
 
 
 2. 모바일 환경에서의 조작감 개선<p>
- <img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-202650_QuickEdit.jpg?raw=true' width=400 height=600><img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-210705_QuickEdit.jpg?raw=true' width=400 height=600><br>모바일 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. </p>
+ <img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-202650_QuickEdit.jpg?raw=true' width=300 height=500><img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-210705_QuickEdit.jpg?raw=true' width=300 height=500><br>모바일 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. </p>
 
 
 3. 플래그 모드 추가<p>
