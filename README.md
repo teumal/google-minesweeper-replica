@@ -28,20 +28,20 @@ google minesweeper replica with js canvas 2d api <br> <br>
 
 ## Descriptions
 여기서는 원본과 달라진 점과, 새로 추가된 기능들을 기술합니다:<br>
-<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/case1.PNG?raw=true'><br>
-1. 원본 google minesweeper 와는 달리, 숫자가 적힌 타일을 눌렀을 때  설치한 플래그의 갯수와 누른 타일 주변에 실제로 존재하는 지뢰의 수가 동일하다면, 타일을 열 수 있습니다. 하지만, 잘못됬다면 게임오버로 간주됩니다. 게임을 스피디하게 진행할 수 있도록 도와줍니다.
 
-<div>
-<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-202650_QuickEdit.jpg?raw=true' width=400 height=600>
-<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-210705_QuickEdit.jpg?raw=true' width=400 height=600>
-</div>
-<div style='display:flex; justify-content:center'>
-<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/flagmode.PNG?raw=true' width=100 height=100>
-<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/minemode.PNG?raw=true' width=100 height=100>
-</div>
-2. 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. 모바일 환경에서는 이 과정조차도 매우 번거로울 수 있기에, flag mode 기능을 새로 도입하였습니다. 우측 상단에는 지뢰 또는 플래그가 그려진 버튼이 하나 있으며, flag mode 와 mine mode 를 번갈아가면서 사용하는게 가능합니다. 플래그가 그려진 것이 flag mode. 지뢰가 그려진 것이 mine mode 입니다. flag mode 를 키게 되면, 짧게 타일을 누르는 것이 플래그를 세우는 동작이 되고 길게 타일을 누르는 것이 타일을 여는 동작이 됩니다.
+1. 숫자 타일을 클릭해 주변 타일 한꺼번에 열기 <br>
+![](https://github.com/teumal/google-minesweeper-replica/blob/main/case1.PNG?raw=true)<br>원본 google minesweeper 와는 달리, 숫자가 적힌 타일을 눌렀을 때  설치한 플래그의 갯수와 누른 타일 주변에 실제로 존재하는 지뢰의 수가 동일하다면, 타일을 열 수 있습니다. 하지만, 잘못됬다면 게임오버로 간주됩니다. 게임을 스피디하게 진행할 수 있도록 도와줍니다.
 
-3. 원본과 달리, 게임이 끝났을 때의 알림이 없습니다. 다시 시작하고 싶으면 단순히 레벨을 다시 선택하기만 하면 됩니다. 패배하면 폭탄이 터지는 모션이 나오며 남은 플래그 수를 터진 만큼 감소시킵니다. 남은 플래그 수가 음수가 나왔다면, 이는 잘못 설치된 플래그의 수라고 이해하면 됩니다. 만약, 남은 플래그의 수가 0개인데.. 플래그를 세운 타일을 제외한 모든 타일들을 열었다면 게임에서 승리하게 됩니다. 승리하게 되면, 지뢰가 있던 타일들에서 밤꽃(bomb flower)이 피어나게 됩니다. 밤꽃의 색은 터진 타일의 색깔들과 같습니다:). 
+
+2. 모바일 환경에서의 조작감 개선<p>
+ <img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-202650_QuickEdit.jpg?raw=true' width=400 height=600><img src='https://github.com/teumal/google-minesweeper-replica/blob/main/Screenshot_20220909-210705_QuickEdit.jpg?raw=true' width=400 height=600><br>모바일 환경에서는 게임은 항상 전체화면의 비율을 가지게 됩니다('100%'). 타일을 짧게 누르는 것으로 타일을 열 수 있으며, 길게 눌렀다면 플래그를 세울 수 있습니다. </p>
+
+
+3. 플래그 모드 추가<p>
+<img src='https://github.com/teumal/google-minesweeper-replica/blob/main/flagmode.PNG?raw=true' width=100 height=100><img src='https://github.com/teumal/google-minesweeper-replica/blob/main/minemode.PNG?raw=true' width=100 height=100><br>
+모바일 환경에서는 이 과정조차도 매우 번거로울 수 있기에, flag mode 기능을 새로 도입하였습니다. 우측 상단에는 지뢰 또는 플래그가 그려진 버튼이 하나 있으며, flag mode 와 mine mode 를 번갈아가면서 사용하는게 가능합니다. 플래그가 그려진 것이 flag mode. 지뢰가 그려진 것이 mine mode 입니다. flag mode 를 키게 되면, 짧게 타일을 누르는 것이 플래그를 세우는 동작이 되고 길게 타일을 누르는 것이 타일을 여는 동작이 됩니다.</p>
+
+4. 원본과 달리, 게임이 끝났을 때의 알림이 없습니다. 다시 시작하고 싶으면 단순히 레벨을 다시 선택하기만 하면 됩니다. 패배하면 폭탄이 터지는 모션이 나오며 남은 플래그 수를 터진 만큼 감소시킵니다. 남은 플래그 수가 음수가 나왔다면, 이는 잘못 설치된 플래그의 수라고 이해하면 됩니다. 만약, 남은 플래그의 수가 0개인데.. 플래그를 세운 타일을 제외한 모든 타일들을 열었다면 게임에서 승리하게 됩니다. 승리하게 되면, 지뢰가 있던 타일들에서 밤꽃(bomb flower)이 피어나게 됩니다. 밤꽃의 색은 터진 타일의 색깔들과 같습니다:). 
 
 ## Implementation.
 게임에서 중요한 기능들을 어떻게 구현했는지에 대해서 기술합니다:
