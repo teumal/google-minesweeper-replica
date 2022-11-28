@@ -847,7 +847,7 @@ function popTile(taskId) {
       const l = task.lst[task.cur]
       timeoutId = 
       setTimeout(setPopAnimation, 
-                 Math.round(Math.random() * 250),
+                 Math.round(Math.random() * 20),
                  l.y, l.x, task.lst, task.lst2, task.cur)
     }
     else {
@@ -1092,7 +1092,7 @@ function setPopAnimation(r,c, bombList,
     leafCont.push({
       ySpeed   : 0.2 + Math.random() * 2,
       xSpeed   : 0.05 + Math.random() * 0.5,
-      yMax     : 40 + Math.random() * 30, 
+      yMax     : 100 + Math.random() * 30, 
       size     : 5 + Math.random() * 10,
       radY     : 0, 
       radX     : 0, 
